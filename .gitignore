@@ -1,0 +1,4 @@
+/src/*.suo
+
+/src/NppRegExTractor/bin
+/src/NppRegExTractor/obj
