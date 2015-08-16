@@ -9,6 +9,10 @@ Plugin for Notpad++ which itegrates RegExTractor into Notepad++
 * Place content from the downloaded zip archive in here
 * Be aware to keep files in RegExTractor directory within this subdirectory
 * Restart Notepad++ and find NppRegExTractor plugin in menu
+* Usage: https://github.com/viper3400/RegExTractor/wiki/de:userdocumentation
+
+![](https://github.com/viper3400/NppRegExTractor/blob/master/src/doc/images/npp_plugins_dir.png)
+
 
 ## Content of zip archive
 * ./NppRegExtratorPlugin.dll
