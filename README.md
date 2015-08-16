@@ -7,4 +7,12 @@ Plugin for Notpad++ which itegrates RegExTractor into Notepad++
 * Browse to your Notepad++ program directory, mostly located unter "C:\Program Files (x86)\Notepad++"
 * Find the subdirectory plugins, mostly "C:\Program Files (x86)\Notepad++\plugins"
 * Place content from the downloaded zip archive in here
+* Restart Notepad++ and find NppRegExTractor plugin in menu
 
+## Content of zip archive
+* ./NppRegExtratorPlugin.dll
+* ./RegExTractor/Ninject.dll
+* ./RegExTractor/RegExTractor.dll
+* ./RegExTractor/RegExTractorModules.dll
+* ./RegExTractor/RegExTractorShared.dll
+* ./RegExTractor/RegExTractorWinForm.dll
