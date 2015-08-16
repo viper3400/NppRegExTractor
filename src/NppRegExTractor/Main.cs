@@ -17,8 +17,8 @@ namespace NppRegExTractorPlugin
         static bool someSetting = false;
         static frmMyDlg frmMyDlg = null;
         static int idMyDlg = -1;
-        static Bitmap tbBmp = Properties.Resources.star;
-        static Bitmap tbBmp_tbTab = Properties.Resources.star_bmp;
+        static Bitmap tbBmp = Properties.Resources.folder_search;
+        static Bitmap tbBmp_tbTab = Properties.Resources.folder_search;
         static Icon tbIcon = null;
         #endregion
 
@@ -32,8 +32,9 @@ namespace NppRegExTractorPlugin
             iniFilePath = Path.Combine(iniFilePath, PluginName + ".ini");
             someSetting = (Win32.GetPrivateProfileInt("SomeSection", "SomeKey", 0, iniFilePath) != 0);
 
-            PluginBase.SetCommand(0, "MyMenuCommand", myMenuFunction, new ShortcutKey(false, false, false, Keys.None));
-            PluginBase.SetCommand(1, "MyDockableDialog", myDockableDialog); idMyDlg = 1;
+            PluginBase.SetCommand(0, "Open RegExTractor", myDockableDialog); idMyDlg = 0;
+            PluginBase.SetCommand(1, "About", myMenuFunction, new ShortcutKey(false, false, false, Keys.None));            
+            
         }
         internal static void SetToolBarIcon()
         {
@@ -53,7 +54,7 @@ namespace NppRegExTractorPlugin
         #region " Menu functions "
         internal static void myMenuFunction()
         {
-            MessageBox.Show("Hello N++!");
+            MessageBox.Show("RegExTractor Notepad++ Plugin\r\nJan Graefe 2015");
         }
         internal static void myDockableDialog()
         {
@@ -76,7 +77,7 @@ namespace NppRegExTractorPlugin
 
                 NppTbData _nppTbData = new NppTbData();
                 _nppTbData.hClient = frmMyDlg.Handle;
-                _nppTbData.pszName = "My dockable dialog";
+                _nppTbData.pszName = "RegExTractor";
                 _nppTbData.dlgID = idMyDlg;
                 _nppTbData.uMask = NppTbMsg.DWS_DF_CONT_RIGHT | NppTbMsg.DWS_ICONTAB | NppTbMsg.DWS_ICONBAR;
                 _nppTbData.hIconTab = (uint)tbIcon.Handle;
