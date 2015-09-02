@@ -54,7 +54,8 @@ namespace NppRegExTractorPlugin
         #region " Menu functions "
         internal static void myMenuFunction()
         {
-            MessageBox.Show("RegExTractor Notepad++ Plugin\r\nJan Graefe 2015");
+            var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            MessageBox.Show("RegExTractor Notepad++ Plugin\r\nJan Graefe 2015\r\n" + version);
         }
         internal static void myDockableDialog()
         {
