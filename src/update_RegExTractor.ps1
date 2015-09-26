@@ -30,3 +30,5 @@ Invoke-Expression "./SetVersion.ps1 $version"
 Write-Host "Updated version to $version"
 
 Invoke-Expression ".\build.cmd"
+
+Invoke-Expression "./publish.ps1 $(get-location)"
