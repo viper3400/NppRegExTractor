@@ -21,3 +21,7 @@ Plugin for Notpad++ which itegrates RegExTractor into Notepad++
 * ./RegExTractor/RegExTractorModules.dll
 * ./RegExTractor/RegExTractorShared.dll
 * ./RegExTractor/RegExTractorWinForm.dll
+
+
+## Remark to cloners
+_As NppRegExTractor is a wrapper of RegExTractor libs, you have also to clone and build https://github.com/viper3400/RegExTractor!_
