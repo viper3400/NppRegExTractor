@@ -1,7 +1,7 @@
 # NppRegExTractor
 Plugin for Notpad++ which itegrates RegExTractor into Notepad++
 
-![Build status](https://ci.appveyor.com/api/projects/status/wey1eh49t7b6v5ko?svg=true)](https://ci.appveyor.com/project/viper3400/nppregextractor)
+[![Build status](https://ci.appveyor.com/api/projects/status/wey1eh49t7b6v5ko?svg=true)](https://ci.appveyor.com/project/viper3400/nppregextractor)
 
 ## Install plugin into Notepad++
 * Download latest version of NppRegExTractor here: https://github.com/viper3400/NppRegExTractor/releases/latest
