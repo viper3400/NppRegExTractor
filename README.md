@@ -8,6 +8,7 @@ Plugin for Notpad++ which itegrates RegExTractor into Notepad++
 * Find the subdirectory plugins, mostly "C:\Program Files (x86)\Notepad++\plugins"
 * Place content from the downloaded zip archive in here
 * Be aware to keep files in RegExTractor directory within this subdirectory
+* Starting with version 2.0.0 there is also a x64 build available (for Notepad++ x64)
 * Restart Notepad++ and find NppRegExTractor plugin in menu
 * Usage: https://github.com/viper3400/RegExTractor/wiki/de:userdocumentation
 
@@ -25,3 +26,11 @@ Plugin for Notpad++ which itegrates RegExTractor into Notepad++
 
 ## Remark to cloners
 _As NppRegExTractor is a wrapper of RegExTractor libs, you have also to clone and build https://github.com/viper3400/RegExTractor!_
+
+## Versioning
+Starting with version 2.0.0 of NppRegExtractor the versioning of the Notepad++ plugin will be independent from https://github.com/viper3400/RegExTractor. 
+
+|NppRegExtractor Version|Contained RegExTractor Version|
+|-----------------------|------------------------------|
+|1.3.4                  |1.3.4                         |
+|2.0.0                  |1.3.4                         |
