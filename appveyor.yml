@@ -1,26 +1,34 @@
-version: 1.0.{build}
+version: 2.0.0.{build}
 image: Visual Studio 2017
 
+# branches to build
+branches:
+  # whitelist
+  only:
+    - master
+
+# Start builds on tags only (GitHub and BitBucket)
+skip_non_tags: true
 
 environment:
   matrix:
-    - PlatformToolset: VS15
+    #- PlatformToolset: VS15
     - PlatformToolset: VS17
 
 platform:
     - x64
-    - Any CPU
+    - x86
 
 configuration:
     - Release
-    - Debug
+    #- Debug
 
 install:
     - if "%platform%"=="x64" set archi=amd64
     - if "%platform%"=="x64" set platform_input=x64
 
-    - if "%platform%"=="Any CPU" set archi=x86
-    - if "%platform%"=="Any CPU" set platform_input=Any CPU
+    - if "%platform%"=="x86" set archi=x86
+    - if "%platform%"=="x86" set platform_input=x86
 
     - if "%PlatformToolset%"=="VS15" call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %archi%
     - if "%PlatformToolset%"=="VS17" call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %archi%
@@ -39,24 +47,39 @@ after_build:
     - cd "%APPVEYOR_BUILD_FOLDER%"\src\NppRegExTractor
     - ps: >-
 
+        New-Item -ItemType Directory staging\RegExTractor
+
+        Copy-Item RegExTractor\Ninject.dll staging\RegExTractor
+
+        Copy-Item RegExTractor\RegExTractor.dll staging\RegExTractor
+
+        Copy-Item RegExTractor\RegExTractorModules.dll staging\RegExTractor
+
+        Copy-Item RegExTractor\RegExTractorShared.dll staging\RegExTractor
+
+        Copy-Item RegExTractor\RegExTractorWinForm.dll staging\RegExTractor
+
+        Copy-Item "bin\$env:PLATFORM_INPUT\$env:CONFIGURATION\NppRegExTractorPlugin.dll" staging
+
+        $ZipFileName = "$env:APPVEYOR_BUILD_FOLDER\NppRegExTractor_failed.zip"
+
         if ($env:PLATFORM_INPUT -eq "x64" -and $env:CONFIGURATION -eq "Release") {
-            Push-AppveyorArtifact "bin\$env:PLATFORM_INPUT\$env:CONFIGURATION\NppRegExTractorPlugin.dll" -FileName NppRegExTractorPlugin.dll
+            #Push-AppveyorArtifact "bin\$env:PLATFORM_INPUT\$env:CONFIGURATION\NppRegExTractorPlugin.dll" -FileName NppRegExTractorPlugin.dll
+            $ZipFileName = "$env:APPVEYOR_BUILD_FOLDER\NppRegExTractor_$($env:APPVEYOR_REPO_TAG_NAME)_BUILD_$($env:APPVEYOR_BUILD_NUMBER)_x64.zip"
         }
 
-        if ($env:PLATFORM_INPUT -eq "Any CPU" -and $env:CONFIGURATION -eq "Release") {
-            Push-AppveyorArtifact "bin\$env:CONFIGURATION\NppRegExTractorPlugin.dll" -FileName NppRegExTractorPlugin.dll
+        if ($env:PLATFORM_INPUT -eq "x86" -and $env:CONFIGURATION -eq "Release") {
+            #Push-AppveyorArtifact "bin\$env:CONFIGURATION\NppRegExTractorPlugin.dll" -FileName NppRegExTractorPlugin.dll
+            $ZipFileName = "$env:APPVEYOR_BUILD_FOLDER\NppRegExTractor_$($env:APPVEYOR_REPO_TAG_NAME)_BUILD_$($env:APPVEYOR_BUILD_NUMBER)_x86.zip"
         }
 
-        if ($($env:APPVEYOR_REPO_TAG) -eq "true" -and $env:CONFIGURATION -eq "Release" -and $env:PLATFORMTOOLSET -eq "VS17") {
-            if($env:PLATFORM_INPUT -eq "x64"){
-            $ZipFileName = "NppRegExTractor_$($env:APPVEYOR_REPO_TAG_NAME)_x64.zip"
-            7z a $ZipFileName bin\$env:PLATFORM_INPUT\$env:CONFIGURATION\NppRegExTractorPlugin.dll
-            }
-            if($env:PLATFORM_INPUT -eq "Any CPU"){
-            $ZipFileName = "NppRegExTractor_$($env:APPVEYOR_REPO_TAG_NAME)_x86.zip"
-            7z a $ZipFileName bin\$env:CONFIGURATION\NppRegExTractorPlugin.dll
-            }
-        }
+        cd staging
+
+        7z a $ZipFileName NppRegExTractorPlugin.dll
+
+        7z a $ZipFileName RegExTractor\*.*
+
+        #Push-AppveyorArtifact $ZipFileName
 
 artifacts:
   - path: NppRegExTractor_*.zip
@@ -65,7 +88,7 @@ artifacts:
 deploy:
     provider: GitHub
     auth_token:
-        secure: !!TODO, see https://www.appveyor.com/docs/deployment/github/#provider-settings!!
+        secure: nm3M2C1HWABN5iU2WmIY8M4A90F7cIDOKQnYUkwhL3P3kMEuYLKJYrCPYhkcpGqV
     artifact: releases
     draft: false
     prerelease: false
