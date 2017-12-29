@@ -12,7 +12,7 @@ Plugin for Notpad++ which itegrates RegExTractor into Notepad++
 * Be aware to keep files in RegExTractor directory within this subdirectory
 * Starting with version 2.0.0 there is also a x64 build available (for Notepad++ x64)
 * Restart Notepad++ and find NppRegExTractor plugin in menu
-* Usage: https://github.com/viper3400/RegExTractor/wiki/de:userdocumentation
+* Usage: https://github.com/viper3400/RegExTractor/wiki
 
 ![](https://github.com/viper3400/NppRegExTractor/blob/master/src/doc/images/npp_plugins_dir.png)
 
