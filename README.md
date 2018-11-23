@@ -3,7 +3,7 @@ Plugin for Notpad++ which itegrates RegExTractor into Notepad++
 
 [![Build status](https://ci.appveyor.com/api/projects/status/wey1eh49t7b6v5ko?svg=true)](https://ci.appveyor.com/project/viper3400/nppregextractor)
 
-## User of Notepad++ 7.5.8 and higher
+## (!) Notepad++ 7.5.8 and higher (!)
 
 Plugin Manager and plugin system of Notepad++ has been redesigned and it seems there are some breaking changes. NppRegExTractor may not be usable any longer. See https://github.com/viper3400/NppRegExTractor/issues/5.
 
