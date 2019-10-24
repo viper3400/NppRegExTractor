@@ -5,6 +5,10 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Runtime.InteropServices;
+using NppPluginNET;
 
 namespace NppRegExTractorPlugin
 {
@@ -18,7 +22,11 @@ namespace NppRegExTractorPlugin
 
         private void LoadRegExTractorUI()
         {
-            var regextractorassembly = Assembly.LoadFrom(@"plugins\RegExtractor\RegExTractorWinForm.dll");
+            
+            StringBuilder sbIniFilePath = new StringBuilder(Win32.MAX_PATH);
+            Win32.SendMessage(PluginBase.nppData._nppHandle, NppMsg.NPPM_GETPLUGINHOMEPATH, Win32.MAX_PATH, sbIniFilePath);
+            
+            var regextractorassembly = Assembly.LoadFrom(sbIniFilePath.ToString() + "\\NppRegExTractorPlugin\\RegExtractor\\RegExTractorWinForm.dll");
             //MessageBox.Show("Registerd Assembly");
 
             Type type = regextractorassembly.GetType("RegExTractorWinForm.RegExTractorMainUI");
