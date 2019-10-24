@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
-
+using System.IO;
 namespace NppRegExTractorPlugin
 {
     public partial class frmMyDlg : Form
@@ -18,7 +18,8 @@ namespace NppRegExTractorPlugin
 
         private void LoadRegExTractorUI()
         {
-            var regextractorassembly = Assembly.LoadFrom(@"plugins\RegExtractor\RegExTractorWinForm.dll");
+            var currentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            var regextractorassembly = Assembly.LoadFrom(currentDirectory + "\\RegExtractor\\RegExTractorWinForm.dll");
             //MessageBox.Show("Registerd Assembly");
 
             Type type = regextractorassembly.GetType("RegExTractorWinForm.RegExTractorMainUI");
