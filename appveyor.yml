@@ -1,4 +1,4 @@
-version: 2.0.0.{build}
+version: 2.1.0.{build}
 image: Visual Studio 2017
 
 # branches to build
@@ -88,7 +88,7 @@ artifacts:
 deploy:
     provider: GitHub
     auth_token:
-        secure: nm3M2C1HWABN5iU2WmIY8M4A90F7cIDOKQnYUkwhL3P3kMEuYLKJYrCPYhkcpGqV
+        secure: btmXqFUQULv4NgQ0TfrJ59uQxpp3vu9/K1C3LguRcxzWD/8JEysaHeiTS72ZqMzp
     artifact: releases
     draft: false
     prerelease: false
