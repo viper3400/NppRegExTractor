@@ -3,3 +3,6 @@
 /src/NppRegExTractor/bin
 /src/NppRegExTractor/obj
 Publish
+
+# Visual Studio cache/options directory
+.vs/
