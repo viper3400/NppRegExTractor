@@ -36,8 +36,8 @@ install:
     #build needs the libs from RegExTractor, so download and place them at the right folder
     - md "%APPVEYOR_BUILD_FOLDER%"\src\NppRegExTractor\RegExTractor
     - cd "%APPVEYOR_BUILD_FOLDER%"\src\NppRegExTractor\RegExTractor
-    - appveyor DownloadFile https://github.com/viper3400/RegExTractor/releases/download/1.3.4/RegExTractor_V1.3.4.zip
-    - 7z e RegExTractor_V1.3.4.zip -y
+    - appveyor DownloadFile https://github.com/viper3400/RegExTractor/releases/download/1.4.0/RegExTractor_V1.4.0.zip
+    - 7z e RegExTractor_V1.4.0.zip -y
 
 build_script:
     - cd "%APPVEYOR_BUILD_FOLDER%"\src
