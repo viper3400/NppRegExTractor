@@ -44,3 +44,6 @@ Starting with version 2.0.0 of NppRegExtractor the versioning of the Notepad++ p
 |1.3.4                  |1.3.4                         |
 |2.0.0                  |1.3.4                         |
 |2.1.0                  |1.4.0                         |
+
+## Contributions
+* Thanks to [Gurikbal](https://github.com/gurikbal) for Notepad++ 7.5.8 and higher fix.
