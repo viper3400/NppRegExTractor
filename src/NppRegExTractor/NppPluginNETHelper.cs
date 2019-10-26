@@ -496,7 +496,8 @@ namespace NppPluginNET
         // BOOL NPPM_ALLOCATECMDID(int numberRequested, int* startNumber)
         // sets startNumber to the initial command ID if successful
         // Returns: TRUE if successful, FALSE otherwise. startNumber will also be set to 0 if unsuccessful
-
+        NPPM_GETPLUGINHOMEPATH = (NPPMSG + 97),
+		
         NPPM_ALLOCATEMARKER = (NPPMSG + 82),
         // BOOL NPPM_ALLOCATEMARKER(int numberRequested, int* startNumber)
         // sets startNumber to the initial command ID if successful
